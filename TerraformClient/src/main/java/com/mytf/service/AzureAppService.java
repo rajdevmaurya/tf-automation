@@ -6,21 +6,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 
-import com.mytf.model.Structure;
+import com.mytf.model.AppsvcForm;
 
 @Service
-public class TempLateGenService {
+public class AzureAppService {
 	
-	public void genrateTerraform(Structure structure) {
+	public void createAzAppServiceTemplate(AppsvcForm appsvcForm) {
 		File srcDir = new File("src/main/resources/terraform/app-services");
-		String newFolderName = structure.appname();
+		String newFolderName = appsvcForm.appCode();
 		String tmpdir = System.getProperty("java.io.tmpdir");
 		File destDir = new File(tmpdir, newFolderName);
-		File destTmpDir = new File(destDir, structure.appname()+"_infra");
+		File destTmpDir = new File(destDir, appsvcForm.appCode()+"_infra");
 		try {
 			File[] files = srcDir.listFiles();
 			if (files != null) {
@@ -33,16 +32,16 @@ public class TempLateGenService {
 			} else {
 				System.out.println("Source directory is empty or does not exist.");
 			}
-			String filePath = destDir.getAbsolutePath() + "\\" + structure.environment() + ".tf";
-			witeToFile(filePath, structure,destDir.getAbsolutePath());
+			String filePath = destDir.getAbsolutePath() + "\\" +appsvcForm.appCode()+"_"+appsvcForm.environment() + ".tf";
+			witeToFile(filePath, appsvcForm,destDir.getAbsolutePath());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void witeToFile(String filePath,Structure structure,String destDir) {
+	public void witeToFile(String filePath,AppsvcForm structure,String destDir) {
         String content = "module \"app_service_prod\" {\n" +
-                         "\tsource = \"./"+structure.appname()+"_infra"+"/\"\n" +
+                         "\tsource = \"./"+structure.appCode()+"_infra"+"/\"\n" +
                          "\tlocation            = \""+structure.location()+"\"\n" +
                          "\tenvironment         = \""+structure.environment()+"\"\n" +
                          "\towner               = \""+structure.owner()+"\"\n" +
@@ -68,11 +67,11 @@ public class TempLateGenService {
         executeShellScript(destDir,structure);
     }
 	
-	 private void executeShellScript(String scriptPath,Structure structure) {
+	 private void executeShellScript(String scriptPath,AppsvcForm structure) {
 		 String gitBashPath = "C:/Program Files/Git/bin/bash.exe";
 		 String tmpdir=scriptPath+"\\"+"script.sh";
 	        // Destination directory
-		 ProcessBuilder processBuilder = new ProcessBuilder(gitBashPath, tmpdir,structure.appname());
+		 ProcessBuilder processBuilder = new ProcessBuilder(gitBashPath, tmpdir,structure.appCode());
 	        processBuilder.redirectErrorStream(true);
 	        try {
 	            Process process = processBuilder.start();

@@ -2,7 +2,7 @@ package com.mytf.model;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record Structure(
+public record AppsvcForm(
 		
 		String appCode,
 		@NotBlank(message = "Application Code can not be Empty!")

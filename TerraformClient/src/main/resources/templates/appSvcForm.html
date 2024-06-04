@@ -5,17 +5,17 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Spring Boot Tutorial</title>
+<title>Azure AppService</title>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 	<div th:replace="~{templates :: navbar}"></div>
 	<div class="main">
-		<h1>Fill Template Structure</h1>
+		<h1>Azure AppService</h1>
 	</div>
 	<div class="text">
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
-		<form class="main" action="#" th:action="@{/createStructure}" th:object="${structure}" th:method="${method}">
+		<form class="main" action="#" th:action="@{/azAppService}" th:object="${appSvcForm}" th:method="${method}">
 			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
 			<p class="userform"><label for="appname">Webapp Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
 			<p class="userform"><label for="owner">Project Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>

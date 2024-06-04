@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
-    location            = var.owner
+    location            = var.location
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     tags = {
@@ -44,7 +44,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
-    location            = var.owner
+    location            = var.location
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     security_rule {

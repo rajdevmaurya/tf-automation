@@ -1,0 +1,27 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: resourceserver01
+  threads:
+    virtual:
+      enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000    
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_db
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO              
+clean:
+  database:
+    cron.expression: '0 */15 * * * *'
+    days: 0

@@ -1,0 +1,25 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: authorizationserver
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_db
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+jwt:
+  encryptor:
+    password: password
+    salt: 626F6F746966756C
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO    

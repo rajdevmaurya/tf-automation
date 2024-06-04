@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Spring Boot Tutorial</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="~{templates :: navbar}"></div>
+	<div class="main">
+		<h1>Fill Template Structure</h1>
+	</div>
+	<div class="text">
+		<div class="error" th:if="${error}">Invalid username and/or password.</div>
+		<form class="main" action="#" th:action="@{/createStructure}" th:object="${structure}" th:method="${method}">
+			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
+			<p class="userform"><label for="appname">Webapp Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
+			<p class="userform"><label for="owner">Project Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>
+			<p class="userform"><label for="osType">Operating System Type: </label>
+				<select id="osType" name="osType" required>
+					<option value="Windows">Windows</option>
+					<option value="Linux">Linux</option>
+				</select>
+			</p>
+			
+			<p class="userform"><label for="location">location: </label>
+				<select id="owner" name="location" required>
+					<option value="East US">East Us</option>
+					<option value="West US">West Us</option>
+				</select>
+			</p>
+			<p class="userform"><label for="password">environment: </label>
+				<select id="owner" name="environment" required>
+					<option value="System">System</option>
+					<option value="UAT">UAT</option>
+					<option value="PROD">PROD</option>
+				</select>
+			</p>
+        	<p class="userform">
+        		<input type="submit" value="Submit" /> 
+        		<input type="reset" value="Reset" />
+        	</p>
+    	</form>
+    </div>
+	<div th:replace="~{templates :: footer}"></div>
+</body>
+</html>

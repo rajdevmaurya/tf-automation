@@ -31,7 +31,8 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
-    name                         = "myPublicIP"
+    count                        = var.no_of_app_count
+    name                         = "myPublicIP-${count.index + 1}"
     location                     = var.location
     resource_group_name          = azurerm_resource_group.myterraformgroup.name
     allocation_method            = "Dynamic"
@@ -66,7 +67,8 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
-    name                      = "myNIC"
+    count                     = var.no_of_app_count
+    name                      = "myNIC-${count.index + 1}"
     location                  = var.location
     resource_group_name       = azurerm_resource_group.myterraformgroup.name
 
@@ -74,7 +76,7 @@ resource "azurerm_network_interface" "myterraformnic" {
         name                          = "myNicConfiguration"
         subnet_id                     = azurerm_subnet.myterraformsubnet.id
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
+        public_ip_address_id          = azurerm_public_ip.myterraformpublicip[count.index].id
     }
 
     tags = {
@@ -84,7 +86,8 @@ resource "azurerm_network_interface" "myterraformnic" {
 
 # Connect the security group to the network interface
 resource "azurerm_network_interface_security_group_association" "example" {
-    network_interface_id      = azurerm_network_interface.myterraformnic.id
+    for_each                  = { for idx, nic in azurerm_network_interface.myterraformnic : idx => nic }
+    network_interface_id      = each.value.id
     network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 }
 
@@ -117,11 +120,11 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "${var.app_name}-${count.index + 1}"
     location              = var.location
     resource_group_name   = azurerm_resource_group.myterraformgroup.name
-    network_interface_ids = [azurerm_network_interface.myterraformnic.id]
+    network_interface_ids = [azurerm_network_interface.myterraformnic[count.index].id]
     size                  = "Standard_DS1_v2"
 
     os_disk {
-        name              = "myOsDisk"
+        name              = "myOsDisk-${count.index + 1}"  # Unique name for each VM
         caching           = "ReadWrite"
         storage_account_type = "Premium_LRS"
     }

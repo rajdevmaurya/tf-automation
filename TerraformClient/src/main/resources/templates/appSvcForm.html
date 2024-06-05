@@ -17,7 +17,7 @@
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/azAppService}" th:object="${appSvcForm}" th:method="${method}">
 			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
-			<p class="userform"><label for="appname">Webapp Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
+			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
 			<p class="userform"><label for="owner">Project Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>
 			<p class="userform"><label for="osType">Operating System Type: </label>
 				<select id="osType" name="osType" required>

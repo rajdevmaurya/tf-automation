@@ -32,7 +32,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
     count                        = var.no_of_app_count
-    name                         = "myPublicIP-${count.index + 1}"
+    name                         = "${var.app_name}-PublicIP-${count.index + 1}"
     location                     = var.location
     resource_group_name          = azurerm_resource_group.myterraformgroup.name
     allocation_method            = "Dynamic"
@@ -68,7 +68,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
     count                     = var.no_of_app_count
-    name                      = "myNIC-${count.index + 1}"
+    name                      = "${var.app_name}-nic-${count.index + 1}"
     location                  = var.location
     resource_group_name       = azurerm_resource_group.myterraformgroup.name
 
@@ -124,7 +124,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     size                  = "Standard_DS1_v2"
 
     os_disk {
-        name              = "myOsDisk-${count.index + 1}"  # Unique name for each VM
+        name              = "${var.app_code}-OsDisk-${count.index + 1}"  # Unique name for each VM
         caching           = "ReadWrite"
         storage_account_type = "Premium_LRS"
     }

@@ -5,23 +5,39 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Template</title>
+<title>Dashboard</title>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 	<div>
 		<div th:replace="~{templates :: navbar}"></div>
 		<div class="main">
-			<h1>Template</h1>
+			<h1>Azure Infra Automation Dashboard</h1>
 			<div class="text">
-				<a href="/appSvcForm">Create Azure AppService</a>
+				<a href="/appSvcForm">Azure AppService</a>
 			</div>
 		</div>	
 		<div class="main">
 			<div class="text">
-				<a href="/vmForm">Create Azure VM</a>
+				<a href="/vmForm">Azure VM</a>
 			</div>
 		</div>	
+		<div class="main">
+			<div class="text">
+				<a href="/aksForm">Azure AKS</a>
+			</div>
+		</div>
+		<div class="main">
+			<div class="text">
+				<a href="/aksForm">Azure Function</a>
+			</div>
+		</div>
+		
+		<div class="main">
+			<div class="text">
+				<a href="/aksForm">SQL Server</a>
+			</div>
+		</div>
 		
 		<div th:replace="~{templates :: footer}"></div>
 	</div>

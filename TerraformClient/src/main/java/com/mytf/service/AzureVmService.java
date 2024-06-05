@@ -39,7 +39,27 @@ public class AzureVmService {
 	}
 	
 	public void witeToFile(String filePath,VmForm structure,String destDir) {
-        String content = "module \"vm_service_prod\" {\n" +
+		
+		String metaInfo="terraform {\r\n"
+				+ "  required_providers {\r\n"
+				+ "    azurerm = {\r\n"
+				+ "      source  = \"hashicorp/azurerm\"\r\n"
+				+ "      version = \"=2.99.0\"\r\n"
+				+ "    }\r\n"
+				+ "  }\r\n"
+				+ "\r\n"
+				+ "  backend \"azurerm\" {\r\n"
+				+ "    resource_group_name  = \"rg-cloudquickpocs\"\r\n"
+				+ "    storage_account_name = \"ccpsazuretf0001\"\r\n"
+				+ "    container_name       = \"ccpterraformstatefile\"\r\n"
+				+ "    key                  = \"+"+structure.appCode()+".tfstate\"\r\n"
+				+ "  }\r\n"
+				+ "}\r\n"
+				+ "\r\n"
+				+ "provider \"azurerm\" {\r\n"
+				+ "  features {}\r\n"
+				+ "}\n";
+        String module = "module \"vm_service_prod\" {\n" +
                 "\tsource = \"./"+structure.appCode()+"_infra"+"/\"\n" +
                 "\tlocation            = \""+structure.location()+"\"\n" +
                 "\tenvironment         = \""+structure.environment()+"\"\n" +
@@ -49,11 +69,10 @@ public class AzureVmService {
                 "\tapp_code            = \""+structure.appCode()+"\"\n" +
                 "\tno_of_app_count     = 2\n" +
                 "}\n";
+        String content =metaInfo+module;
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 		   writer.write(content);
 		   System.out.println("Content written to file successfully.");
-		   
-		   
 		} catch (IOException e) {
 		   e.printStackTrace();
 		}

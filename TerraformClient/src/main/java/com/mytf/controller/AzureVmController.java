@@ -19,7 +19,7 @@ public class AzureVmController {
 	
 	@GetMapping("/vmForm")
 	public String templateForm(Model model,@ModelAttribute VmForm vmForm) {
-		model.addAttribute("vmForm", new VmForm(null, null, null, null, null, null, null, true));
+		model.addAttribute("vmForm", new VmForm(null, null, null, null, null, null, null, false));
 		model.addAttribute("method", "post");
 		return "vmForm";
 	}

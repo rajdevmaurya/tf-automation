@@ -9,13 +9,95 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+	<style>
+		/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.home-heading {
+    /* Add your styles for home-heading */
+    font-size: 2em;
+    color: #0078D4;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 15px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-text h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.heading-text h3 {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.header-text2 p {
+    font-size: 1em;
+    color: #777;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.home-img {
+    /* Add your styles for home-img */
+    border-radius: 10px;
+}
+
+	</style>
 	<div>
 		<div th:replace="~{templates :: navbar}"></div>
 		<div class="main">
-			<h1>Home Page</h1>
-			<div class="text">
-				<p th:text="${logout}">
-			</div>
+		<div class="container-fluid">
+        <h3 >Welcome....</h3>
+        <p>
+            Helping Businesses Grow with Innovative IT Solutions
+            Welcome to Vision Techno Services! We specialize in providing comprehensive IT solutions that empower businesses to thrive. From custom software development to innovative tech solutions, we harness cutting-edge technologies to optimize processes, enhance productivity, and drive growth, enabling our clients to stay ahead in today's digital landscape.
+        </p>
 		</div>	
 		<div th:replace="~{templates :: footer}"></div>
 	</div>

@@ -11,34 +11,26 @@
 <body>
 	<div>
 		<div th:replace="~{templates :: navbar}"></div>
-		<div class="main">
-			<h1>Azure Infra Automation Dashboard</h1>
+		<h1>Azure Dashboard</h1>
+		<div class="card">
 			<div class="text">
-				<a href="/appSvcForm">Azure AppService</a>
+				<a href="/appSvcForm">Choos App Service</a>
 			</div>
-		</div>	
-		<div class="main">
+		</div>
+		<div class="card">
 			<div class="text">
 				<a href="/vmForm">Azure VM</a>
 			</div>
-		</div>	
-		<div class="main">
+		</div>
+		<div class="card">
 			<div class="text">
 				<a href="/aksForm">Azure AKS</a>
 			</div>
 		</div>
-		<div class="main">
-			<div class="text">
-				<a href="/aksForm">Azure Function</a>
-			</div>
-		</div>
-		
-		<div class="main">
-			<div class="text">
-				<a href="/aksForm">SQL Server</a>
-			</div>
-		</div>
-		
+
+</head>
+
+</html>
 		<div th:replace="~{templates :: footer}"></div>
 	</div>
 </body>

@@ -18,9 +18,9 @@ public class AzureAppSvcController {
 		this.azureAppService = azureAppService;
 	}
 
-	@GetMapping("/template")
+	@GetMapping("/azBoard")
 	public String getTemplate() {
-		return "template";
+		return "azBoard";
 	}
 	
 	@GetMapping("/appSvcForm")
@@ -33,6 +33,6 @@ public class AzureAppSvcController {
 	@PostMapping("/azAppService")
 	public String createStructure(Model model,@ModelAttribute AppsvcForm appsvcForm) {
 		azureAppService.createAzAppServiceTemplate(appsvcForm);
-		return "redirect:/template";
+		return "redirect:/azBoard";
 	}
 }

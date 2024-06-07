@@ -27,6 +27,6 @@ public class AksController {
 	@PostMapping("/aksService")
 	public String createStructure(Model model,@ModelAttribute AksForm aksForm) {
 		aksService.createAksTemplate(aksForm);
-		return "redirect:/template";
+		return "redirect:/azBoard";
 	}
 }

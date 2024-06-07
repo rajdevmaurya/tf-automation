@@ -1,16 +1,14 @@
 package com.mytf.service;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import org.apache.commons.io.FileUtils;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
 import com.mytf.model.AksForm;
+import com.mytf.utils.TemplateUtils;
 @Service
 public class AksService {
 	@Async("threadPoolTaskExecutor")
@@ -83,26 +81,6 @@ public class AksService {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		executeShellScript(destDir,structure);
+		 TemplateUtils.executeShellScript(destDir,structure.appCode());
    }
-	
-	 private void executeShellScript(String scriptPath,AksForm structure) {
-		 String gitBashPath = "C:/Program Files/Git/bin/bash.exe";
-		 String tmpdir=scriptPath+"\\"+"script.sh";
-	        // Destination directory
-		 ProcessBuilder processBuilder = new ProcessBuilder(gitBashPath, tmpdir,structure.appCode());
-	        processBuilder.redirectErrorStream(true);
-	        try {
-	            Process process = processBuilder.start();
-	            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-	            String line;
-	            while ((line = reader.readLine()) != null) {
-	                System.out.println(line);
-	            }
-	            int exitCode = process.waitFor();
-	            System.out.println("Script executed with exit code: " + exitCode);
-	        } catch (IOException | InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
 }

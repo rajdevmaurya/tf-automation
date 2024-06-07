@@ -19,8 +19,9 @@
 			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="Application Project Code" required autofocus /></p>
 			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="Application Name" required autofocus /></p>
 			<p class="userform"><label for="owner">Application Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="Application Owner" required autofocus /></p>
-			<p class="userform"><label for="osType">Operating System Type: </label>
+			<p class="userform"><label for="osType">Operating System : </label>
 				<select id="osType" name="osType" required>
+					<option value="" selected>Please Select</option>
 					<option value="Windows">Windows</option>
 					<option value="Linux">Linux</option>
 				</select>
@@ -28,12 +29,14 @@
 			<p class="userform"><label for="noOfAppCount">Nuber of AppService: </label><input id="noOfAppCount" type="number" th:field="*{noOfAppCount}" placeholder="Nuber of AppService" required autofocus /></p>
 			<p class="userform"><label for="location">Geo Location: </label>
 				<select id="owner" name="location" required>
+					<option value="" selected>Please Select</option>
 					<option value="East US">East Us</option>
 					<option value="West US">West Us</option>
 				</select>
 			</p>
 			<p class="userform"><label for="password">Select Host Evironment: </label>
 				<select id="owner" name="environment" required>
+					<option value="" selected>Please Select</option>
 					<option value="System">System</option>
 					<option value="UAT">UAT</option>
 					<option value="PROD">PROD</option>

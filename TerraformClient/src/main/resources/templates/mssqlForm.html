@@ -22,12 +22,14 @@
 			<p class="userform"><label for="owner">Database Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>
 			<p class="userform"><label for="location">Geo Location: </label>
 				<select id="owner" name="location" required>
+					<option value="" selected>Please Select</option>
 					<option value="East US">East Us</option>
 					<option value="West US">West Us</option>
 				</select>
 			</p>
 			<p class="userform"><label for="password">Host Environment: </label>
 				<select id="owner" name="environment" required>
+					<option value="" selected>Please Select</option>
 					<option value="System">System</option>
 					<option value="UAT">UAT</option>
 					<option value="PROD">PROD</option>

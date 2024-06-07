@@ -19,7 +19,7 @@ public class AzureMssqlController {
 	
 	@GetMapping("/mssqlForm")
 	public String templateForm(Model model,@ModelAttribute MssqlForm mssqlForm) {
-		model.addAttribute("mssqlForm", new MssqlForm(null, null, null, null, null, null, null, false));
+		model.addAttribute("mssqlForm", new MssqlForm(null, null, null, null, null, null, null, null, null, null, false));
 		model.addAttribute("method", "post");
 		return "mssqlForm";
 	}

@@ -17,19 +17,19 @@
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/azVmService}" th:object="${vmForm}" th:method="${method}">
 			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text"
-					th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
+					th:field="*{appCode}" placeholder="Project Code" required autofocus /></p>
 			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text"
-					th:field="*{appname}" placeholder="appname" required autofocus /></p>
-			<p class="userform"><label for="owner">Project Owner: </label><input id="owner" type="text"
-					th:field="*{owner}" placeholder="owner" required autofocus /></p>
+					th:field="*{appname}" placeholder="Application Name" required autofocus /></p>
+			<p class="userform"><label for="owner">Application Owner: </label><input id="owner" type="text"
+					th:field="*{owner}" placeholder="Application Owner" required autofocus /></p>
 			<p class="userform"><label for="osType">Operating System Type: </label>
 				<select id="osType" name="osType" required>
 					<option value="Windows">Windows</option>
 					<option value="Linux">Linux</option>
 				</select>
 			</p>
-			<p class="userform"><label for="noOfAppCount">Nuber of VM: </label><input id="noOfAppCount" type="number"
-					th:field="*{noOfAppCount}" placeholder="noOfAppCount" required autofocus /></p>
+			<p class="userform"><label for="noOfAppCount">Nuber of Machine: </label><input id="noOfAppCount" type="number"
+					th:field="*{noOfAppCount}" placeholder="Nuber of Virtual machine" required autofocus /></p>
 			<p class="userform"><label for="location">Geo Location: </label>
 				<select id="owner" name="location" required>
 					<option value="East US">East Us</option>

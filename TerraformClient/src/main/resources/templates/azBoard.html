@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Dashboard</title>
-<link rel="stylesheet" th:href="@{/css/style.css}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Dashboard</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 	<div>
 		<div th:replace="~{templates :: navbar}"></div>
 		<h1>Azure Dashboard</h1>
 		<div class="card">
-			<div class="text">
-				<a href="/appSvcForm">Choos App Service</a>
-			</div>
+			<form class="link" th:action="@{/appSvcForm}" method="get">
+				<div class="text">
+					<a href="/appSvcForm">Choos App Service</a>
+				</div>
+			</form>
 		</div>
 		<div class="card">
-			<div class="text">
-				<a href="/vmForm">Azure VM</a>
-			</div>
-		</div>
-		
-		<div class="card">
-			<div class="text">
-				<a href="/mssqlForm">Azure MSSQL Service</a>
-			</div>
-		</div>
-		
-		<div class="card">
-			<div class="text">
-				<a href="/aksForm">Azure AKS</a>
-			</div>
+			<form class="link" th:action="@{/vmForm}" method="get">
+				<div class="text">
+					<a href="/vmForm">Azure VM</a>
+				</div>
+			</form>
 		</div>
 
-</head>
+		<div class="card">
+			<form class="link" th:action="@{/mssqlForm}" method="get">
+				<div class="text">
+					<a href="/mssqlForm">Azure MSSQL Service</a>
+				</div>
+			</form>
+		</div>
+		</head>
 
 </html>
-		<div th:replace="~{templates :: footer}"></div>
-	</div>
+<div th:replace="~{templates :: footer}"></div>
+</div>
 </body>
 </html>

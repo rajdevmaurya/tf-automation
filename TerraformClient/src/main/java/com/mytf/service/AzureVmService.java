@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.mytf.model.VmForm;
 @Service
 public class AzureVmService {
-	
+	@Async("threadPoolTaskExecutor")
 	public void createAzVmTemplate(VmForm vmForm) {
 		File srcDir = new File("src/main/resources/terraform/vm-services");
 		String newFolderName = vmForm.appCode();
@@ -86,8 +86,8 @@ public class AzureVmService {
 		}
 		executeShellScript(destDir,structure);
    }
-	@Async("threadPoolTaskExecutor")
-	 private void executeShellScript(String scriptPath,VmForm structure) {
+	
+	 public void executeShellScript(String scriptPath,VmForm structure) {
 		 String gitBashPath = "C:/Program Files/Git/bin/bash.exe";
 		 String tmpdir=scriptPath+"\\"+"script.sh";
 	        // Destination directory

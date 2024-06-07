@@ -7,12 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.io.FileUtils;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.mytf.model.AksForm;
 @Service
 public class AksService {
-	
+	@Async("threadPoolTaskExecutor")
 	public void createAksTemplate(AksForm aksForm) {
 		File srcDir = new File("src/main/resources/terraform/vm-services");
 		String newFolderName = aksForm.appCode();

@@ -7,13 +7,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.io.FileUtils;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.mytf.model.AppsvcForm;
 
 @Service
 public class AzureAppService {
-	
+	@Async("threadPoolTaskExecutor")
 	public void createAzAppServiceTemplate(AppsvcForm appsvcForm) {
 		File srcDir = new File("src/main/resources/terraform/app-services");
 		String newFolderName = appsvcForm.appCode();

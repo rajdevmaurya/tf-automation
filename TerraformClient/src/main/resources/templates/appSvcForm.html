@@ -13,7 +13,7 @@
 	<div class="main">
 		<h1>Azure AppService</h1>
 	</div>
-	<div class="text">
+	<div >
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/azAppService}" th:object="${appSvcForm}" th:method="${method}">
 			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>

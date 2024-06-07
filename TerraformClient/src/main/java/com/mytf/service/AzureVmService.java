@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.commons.io.FileUtils;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.mytf.model.VmForm;
@@ -85,7 +86,7 @@ public class AzureVmService {
 		}
 		executeShellScript(destDir,structure);
    }
-	
+	@Async
 	 private void executeShellScript(String scriptPath,VmForm structure) {
 		 String gitBashPath = "C:/Program Files/Git/bin/bash.exe";
 		 String tmpdir=scriptPath+"\\"+"script.sh";

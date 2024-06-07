@@ -16,7 +16,7 @@ public class HomeController {
 	
 	@GetMapping("/index")
 	public String home() {
-		return "index";
+		return "azBoard";
 	}
 	
 	@GetMapping("/logged-out")

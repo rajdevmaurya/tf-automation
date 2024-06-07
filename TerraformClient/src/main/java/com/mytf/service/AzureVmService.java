@@ -86,7 +86,7 @@ public class AzureVmService {
 		}
 		executeShellScript(destDir,structure);
    }
-	@Async
+	@Async("threadPoolTaskExecutor")
 	 private void executeShellScript(String scriptPath,VmForm structure) {
 		 String gitBashPath = "C:/Program Files/Git/bin/bash.exe";
 		 String tmpdir=scriptPath+"\\"+"script.sh";

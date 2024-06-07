@@ -16,7 +16,6 @@
 	<div>
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/azVmService}" th:object="${vmForm}" th:method="${method}">
-			<p class="userform"><label for="gheRepoName">GitHub Repository: </label><input id="gheRepoName" type="text" th:field="*{gheRepoName}" placeholder="GitHub Repository Url" required autofocus /></p>
 			<p class="userform"><label for="appCode">Application Code: </label><input id="appCode" type="text"
 					th:field="*{appCode}" placeholder="Project Code" required autofocus /></p>
 			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text"

@@ -16,8 +16,9 @@
 	<div>
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/mssqlService}" th:object="${mssqlForm}" th:method="${method}">
+			<p class="userform"><label for="gheRepoName">GitHub Repository: </label><input id="gheRepoName" type="text" th:field="*{gheRepoName}" placeholder="GitHub Repository Url" required autofocus /></p>
 			<p class="userform"><label for="owner">Azure RG Name: </label><input id="resourcegroupname" type="text" th:field="*{resourcegroupname}" placeholder="resourcegroupname" required autofocus /></p>
-			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
+			<p class="userform"><label for="appCode">Application Code: </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
 			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
 			<p class="userform"><label for="owner">Database Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>
 			<p class="userform"><label for="location">Geo Location: </label>

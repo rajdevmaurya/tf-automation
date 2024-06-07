@@ -16,7 +16,8 @@
 	<div >
 		<div class="error" th:if="${error}">Invalid username and/or password.</div>
 		<form class="main" action="#" th:action="@{/azAppService}" th:object="${appSvcForm}" th:method="${method}">
-			<p class="userform"><label for="appCode">Project Code(TLA): </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="Application Project Code" required autofocus /></p>
+			<p class="userform"><label for="gheRepoName">GitHub Repository: </label><input id="gheRepoName" type="text" th:field="*{gheRepoName}" placeholder="GitHub Repository Url" required autofocus /></p>
+			<p class="userform"><label for="appCode">Application Code: </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="Application Project Code" required autofocus /></p>
 			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="Application Name" required autofocus /></p>
 			<p class="userform"><label for="owner">Application Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="Application Owner" required autofocus /></p>
 			<p class="userform"><label for="osType">Operating System : </label>
@@ -34,7 +35,7 @@
 					<option value="West US">West Us</option>
 				</select>
 			</p>
-			<p class="userform"><label for="password">Select Host Evironment: </label>
+			<p class="userform"><label for="password">Select Evironment: </label>
 				<select id="owner" name="environment" required>
 					<option value="" selected>Please Select</option>
 					<option value="System">System</option>
@@ -42,6 +43,7 @@
 					<option value="PROD">PROD</option>
 				</select>
 			</p>
+			<p class="userform"><label for="enabled">Stash Enabled: </label><input id="enabled" type="checkbox" th:field="*{enabled}" /></p>
         	<p class="userform">
         		<input type="submit" value="Submit" /> 
         		<input type="reset" value="Reset" />

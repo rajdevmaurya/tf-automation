@@ -3,6 +3,9 @@ package com.mytf.model;
 import jakarta.validation.constraints.NotBlank;
 
 public record MssqlForm(
+		
+		@NotBlank(message = "Application gheRepoName can not be Empty!")
+		String gheRepoName,
 		@NotBlank(message = "Application resourcegroupname can not be Empty!")
 		String resourcegroupname,
 		@NotBlank(message = "Application Code can not be Empty!")

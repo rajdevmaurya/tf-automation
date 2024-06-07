@@ -3,7 +3,8 @@ package com.mytf.model;
 import jakarta.validation.constraints.NotBlank;
 
 public record VmForm(
-		
+		@NotBlank(message = "Application gheRepoName can not be Empty!")
+		String gheRepoName,
 		String appCode,
 		@NotBlank(message = "Application Code can not be Empty!")
 		@NotBlank(message = "location can not be Empty!")

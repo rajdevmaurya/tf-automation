@@ -4,8 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 
 public record AppsvcForm(
 		
-		String appCode,
+		@NotBlank(message = "Application gheRepoName can not be Empty!")
+		String gheRepoName,
 		@NotBlank(message = "Application Code can not be Empty!")
+		String appCode,
 		@NotBlank(message = "location can not be Empty!")
 		String location,
 		@NotBlank(message = "environment can not be Empty!")

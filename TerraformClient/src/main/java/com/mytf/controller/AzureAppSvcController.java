@@ -25,7 +25,7 @@ public class AzureAppSvcController {
 	
 	@GetMapping("/appSvcForm")
 	public String templateForm(Model model,@ModelAttribute AppsvcForm structure) {
-		model.addAttribute("appSvcForm", new AppsvcForm(null, null, null, null, null, null, null, true));
+		model.addAttribute("appSvcForm", new AppsvcForm(null, null, null, null, null, null, null, null, true));
 		model.addAttribute("method", "post");
 		return "appSvcForm";
 	}

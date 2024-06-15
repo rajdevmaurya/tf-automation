@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>mssql machines</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="~{templates :: navbar}"></div>
+	<div class="main">
+		<h1>MSSQL Service</h1>
+	</div>
+	<div>
+		<div class="error" th:if="${error}">Invalid username and/or password.</div>
+		<form class="main" action="#" th:action="@{/mssqlFormStep2}" th:object="${mssqlForm}" th:method="post">
+			
+			<p class="userform"><label for="gheRepoName">GitHub Repository: </label><input id="gheRepoName" type="text" th:field="*{gheRepoName}" placeholder="GitHub Repository Url" required autofocus /></p>
+			<p class="userform"><label for="owner">Azure RG Name: </label><input id="resourcegroupname" type="text" th:field="*{resourcegroupname}" placeholder="resourcegroupname" required autofocus /></p>
+			<p class="userform"><label for="appCode">Application Code: </label><input id="appCode" type="text" th:field="*{appCode}" placeholder="appCode" required autofocus /></p>
+			<p class="userform"><label for="appname">Application Name: </label><input id="appname" type="text" th:field="*{appname}" placeholder="appname" required autofocus /></p>
+			<p class="userform"><label for="owner">Database Owner: </label><input id="owner" type="text" th:field="*{owner}" placeholder="owner" required autofocus /></p>
+			<p class="userform"><label for="location">Geo Location: </label>
+				<select id="location" th:field="*{location}" name="location" required>
+					<option value="">Please Select</option>
+					<option value="East US">East Us</option>
+					<option value="West US">West Us</option>
+				</select>
+			</p>
+			<p class="userform"><label for="environment">Host Environment: </label>
+				<select id="environment" th:field="*{environment}" name="environment" required>
+					<option value="" selected>Please Select</option>
+					<option value="System">System</option>
+					<option value="UAT">UAT</option>
+					<option value="PROD">PROD</option>
+				</select>
+			</p>
+			
+			<p class="userform"><label for="sqlservername">Server Name: </label><input id="sqlservername" type="text" th:field="*{sqlservername}" placeholder="sqlservername" required autofocus /></p>
+			<p class="userform"><label for="sqldatabasename">Database Name: </label><input id="sqldatabasename" type="text" th:field="*{sqldatabasename}" placeholder="sqldatabasename" required autofocus /></p>
+			<p class="userform"><label for="sqladminlogin">Admin Login Name: </label><input id="sqladminlogin" type="text" th:field="*{sqladminlogin}" placeholder="sqladminlogin" required autofocus /></p>
+			<p class="userform"><label for="sqladminpassword">Admin Password: </label><input id="sqladminpassword" type="text" th:field="*{sqladminpassword}" placeholder="sqladminpassword" required autofocus /></p>
+			<p class="userform"><label for="enabled">TF Stash Enabled: </label><input id="enabled" type="checkbox" th:field="*{enabled}" /></p>
+        	<p class="userform">
+				
+		   <button type="submit" name="action" value="previous">Previous</button>
+		   <input type="reset" value="Reset" />
+           <button type="submit" name="action" value="next">Next</button>
+        		
+        	</p>
+    	</form>
+    </div>
+	<div th:replace="~{templates :: footer}"></div>
+</body>
+</html>

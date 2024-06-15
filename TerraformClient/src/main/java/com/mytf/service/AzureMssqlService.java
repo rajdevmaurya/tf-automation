@@ -61,7 +61,7 @@ public class AzureMssqlService {
 				+ "provider \"azurerm\" {\r\n"
 				+ "  features {}\r\n"
 				+ "}\n";
-				content= content +"module \"vm_service_prod\" {\n" +
+				content= content +"module \"mssql_service_prod\" {\n" +
                 "\tsource = \"./"+structure.appCode()+"_infra"+"/\"\n" 
                 + "	resource_group_name     = \"rg-terraform-web-sql-db\"\r\n"
         		+ "	resource_group_location = \"East US\"\r\n"

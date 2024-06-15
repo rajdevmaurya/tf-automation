@@ -11,6 +11,9 @@
 	<div>
 		<div th:replace="~{templates :: navbar}"></div>
 		<h1>Azure Dashboard</h1>
+		   <div class="text">
+				<p th:text="${message}">
+			</div>
 		<div class="card">
 			<form class="link" th:action="@{/vmForm}" method="get">
 				<div class="text">

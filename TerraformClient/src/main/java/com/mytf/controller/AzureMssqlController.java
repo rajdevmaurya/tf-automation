@@ -27,6 +27,7 @@ public class AzureMssqlController {
 	@PostMapping("/mssqlService")
 	public String createStructure(Model model,@ModelAttribute MssqlForm mssqlForm) {
 		azureMssqlService.createMssqlTemplate(mssqlForm);
-		return "redirect:/azBoard";
+		model.addAttribute("message", "Create Azure MSSQL Service Request has been submitted successfully!");
+		return "azBoard";
 	}
 }

@@ -33,6 +33,7 @@ public class AzureAppSvcController {
 	@PostMapping("/azAppService")
 	public String createStructure(Model model,@ModelAttribute AppsvcForm appsvcForm) {
 		azureAppService.createAzAppServiceTemplate(appsvcForm);
-		return "redirect:/azBoard";
+		model.addAttribute("message", "Create Azure App Service Request has been submitted successfully!");
+		return "azBoard";
 	}
 }

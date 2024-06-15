@@ -27,6 +27,7 @@ public class AzureVmController {
 	@PostMapping("/azVmService")
 	public String createStructure(Model model,@ModelAttribute VmForm vmForm) {
 		azureVmService.createAzVmTemplate(vmForm);
-		return "redirect:/azBoard";
+		model.addAttribute("message", "Create Azure Virtual Machine Request has been submitted successfully!");
+		return "azBoard";
 	}
 }

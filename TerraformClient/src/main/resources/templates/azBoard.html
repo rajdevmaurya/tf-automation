@@ -14,34 +14,54 @@
         <p th:text="${message}"></p>
     </div>
     <div class="container">
-        <div class="card">
-            <form  th:action="@{/vmForm}" method="get">
-                <div class="text">
-                    <a href="/vmForm">Azure Virtual Machine</a>
-                </div>
-            </form>
-        </div>
-        <div class="card">
-            <form  th:action="@{/appSvcForm}" method="get">
-                <div class="text">
-                    <a href="/appSvcForm">App Service</a>
-                </div>
-            </form>
-        </div>
-         <div class="card">
-            <form  th:action="@{/fnAppForm}" method="get">
-                <div class="text">
-                    <a href="/fnAppForm">Function App</a>
-                </div>
-            </form>
-        </div>
-        <div class="card">
-            <form  th:action="@{/mssqlForm}" method="get">
-                <div class="text">
-                    <a href="/mssqlForm">Azure MSSQL Service</a>
-                </div>
-            </form>
-        </div>
+		<div class="card">
+			<form th:action="@{/vmForm}" method="get">
+					<div class="card-link">
+					<a href="/vmForm">
+						<h3>Azure Virtual Machine</h3>
+						<p>Java 17</p>
+						<p> Window/Linux</p>
+					</a>
+				</div>
+			</form>
+		</div>
+		
+		<div class="card">
+			<form th:action="@{/appSvcForm}" method="get">
+				<div class="card-link">
+					<a href="/appSvcForm">
+						<h3>App Service</h3>
+						<p>Java 17</p>
+						<p> Window/Linux</p>
+					</a>
+				</div>
+			</form>
+		</div>
+		
+		
+		<div class="card">
+			<form th:action="@{/fnAppForm}" method="get">
+				<div class="card-link">
+					<a href="/fnAppForm">
+						<h3>Function App</h3>
+						<p>Python</p>
+						<p> Linux</p>
+					</a>
+				</div>
+			</form>
+		</div>
+	
+	<div class="card">
+		<form th:action="@{/mssqlForm}" method="get">
+			<div class="card-link">
+				<a href="/mssqlForm">
+					<h3>Azure MSSQL Service</h3>
+					<p>App Services</p>
+					<p> Window</p>
+				</a>
+			</div>
+		</form>
+	</div>
     </div>
 </body>
 </html>

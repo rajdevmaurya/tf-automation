@@ -12,10 +12,10 @@ echo "Parameter 1: $param1"
 
 
 
-mkdir tmp_repo1
+#mkdir tmp_repo1
 # Clone the git repository into the /tmp directory
 git clone "$REPO_URL" /tmp/tmp_repo1
-
+rm -rf /tmp/tmp_repo1/*.tf
 cp -r /tmp/"$param1"/*_infra /tmp/tmp_repo1
 cp -r /tmp/"$param1"/*.tf /tmp/tmp_repo1
 
@@ -31,7 +31,7 @@ pwd
 git add .
 
 # Commit the changes
-git commit -m "Update Kubernetes manifest"
+git commit -m "Update  manifest"
 
 # Push the changes back to the repository
 git push origin main
